@@ -1,0 +1,18 @@
+
+
+import numpy as np
+
+my_arr = np.asarray(range(1,101))
+my_arr
+
+def sum_squares(my_arr):
+    sos = 0
+    sqs = 0
+    for i in my_arr:
+        sos = sos + (i**2)
+        sqs = sqs = sqs + i
+    sqs = sqs**2
+    res = sqs - sos
+    return res
+
+sum_squares(my_arr)
