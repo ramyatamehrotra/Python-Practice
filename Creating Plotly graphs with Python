@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jul 16 18:55:51 2016
+
+@author: ramyatamehrotra
+"""
+
+
+fo = open("Python_TestData1.txt","r")
+my_file = fo.read()
+
+print (my_file)
+
+
+from collections import Counter
+import plotly
+import plotly.plotly as py
+plotly.tools.set_credentials_file(username='Ramyata', api_key='3w4mhrsajt')
+import plotly.graph_objs as go
+
+
+def read_col():
+    l = []
+    for line in open("Python_TestData1.txt","r"):
+        parts  = line.split(',')
+        if len(parts) > 1:
+           age = parts[1].lstrip()
+           age = age.split('\n')
+           for a in age:
+               l.append(a)
+    new_file = list(filter(None, sorted(l)))
+    print (new_file)
+    data = Counter(new_file)
+    print (data)
+
+    data1 = [go.Bar(
+            x=list(data.keys()),
+            y=list(data.values()),
+            marker={'color':'orange'}
+            )]
+    layout=go.Layout(title="My First Plot", xaxis={'title':'Age'}, yaxis={'title':'Number Of People'})
+    figure=go.Figure(data=data1,layout=layout)
+    py.plot(figure, filename='first-barchart')
+
+
+print (read_col())
