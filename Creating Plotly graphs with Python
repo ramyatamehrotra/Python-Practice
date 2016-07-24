@@ -15,7 +15,7 @@ print (my_file)
 from collections import Counter
 import plotly
 import plotly.plotly as py
-plotly.tools.set_credentials_file(username='Ramyata', api_key='3w4mhrsajt')
+plotly.tools.set_credentials_file(username='Your UserName', api_key='Your API Key')
 import plotly.graph_objs as go
 
 
